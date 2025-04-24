@@ -5,7 +5,7 @@ import "./style.scss";
 
 const EventCard = ({
   imageSrc,
-  imageAlt,
+  imageAlt = "image",
   date = new Date(),
   title,
   label,
@@ -38,8 +38,8 @@ EventCard.propTypes = {
 };
 
 EventCard.defaultProps = {
-  imageAlt: "image",
-  small: false,
+  imageAlt: "image",  
+  small: false,      
 }
 
 export default EventCard;
