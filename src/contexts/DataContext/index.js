@@ -27,9 +27,10 @@ export const DataProvider = ({ children }) => {
     }
   }, []);
   useEffect(() => {
-    if (data) return;
-    getData();
-  });
+    if (!data) {
+      getData();
+    }
+  }, [data, getData]);
 
   const last = data?.events
   ?.slice()
