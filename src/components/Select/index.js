@@ -5,14 +5,23 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
-const Select = ({ selection, onChange, name, titleEmpty, label, type = "normal" }) => {
+const Select = ({
+	selection,
+	onChange = () => null,
+	name = "select",
+	titleEmpty = false,
+	label = "",
+	type = "normal",
+}) => {
 	const [value, setValue] = useState();
 	const [collapsed, setCollapsed] = useState(true);
+
 	const changeValue = (newValue) => {
 		onChange(newValue);
 		setValue(newValue);
-		setCollapsed(newValue);
+		setCollapsed(true);
 	};
+
 	return (
 		<div className={`SelectContainer ${type}`} data-testid="select-testid">
 			{label && <div className="label">{label}</div>}
@@ -64,19 +73,11 @@ const Arrow = () => (
 
 Select.propTypes = {
 	selection: PropTypes.arrayOf(PropTypes.string).isRequired,
-	onChange: PropTypes.func,
-	name: PropTypes.string,
-	titleEmpty: PropTypes.bool,
-	label: PropTypes.string,
-	type: PropTypes.string,
-};
-
-Select.defaultProps = {
-	onChange: () => null,
-	titleEmpty: false,
-	label: "",
-	type: "normal",
-	name: "select",
+	onChange: PropTypes.func.isRequired,
+	name: PropTypes.string.isRequired,
+	titleEmpty: PropTypes.bool.isRequired,
+	label: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired
 };
 
 export default Select;

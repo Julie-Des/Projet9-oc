@@ -47,11 +47,15 @@ const EventList = () => {
 					<Select
 						selection={Array.from(typeList)}
 						onChange={(value) => (value ? changeType(value) : changeType(null))}
+						name="select"
+						titleEmpty={false}
+						label=""
+						type="normal"
 					/>
 					<div id="events" className="ListContainer">
 						{paginatedEvents.map((event, index) => (
 							// eslint-disable-next-line react/no-array-index-key
-							<Modal key={`${event.id}-${index}`} Content={<ModalEvent event={event} />}>
+							<Modal key={`${event.id}-${index}`} Content={<ModalEvent event={event}/>} opened={false}>
 								{({ setIsOpened }) => (
 									<EventCard
 										key={event.id}
@@ -60,6 +64,8 @@ const EventList = () => {
 										title={event.title}
 										date={new Date(event.date)}
 										label={event.type}
+										small={false}
+										imageAlt="image"
 									/>
 								)}
 							</Modal>

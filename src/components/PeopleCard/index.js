@@ -16,13 +16,10 @@ const PeopleCard = ({ imageSrc, imageAlt, position, name }) => (
 
 PeopleCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string,
+  imageAlt: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
 };
 
-PeopleCard.defaultProps = {
-  imageAlt: "",
-}
 
 export default PeopleCard;
