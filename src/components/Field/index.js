@@ -23,6 +23,7 @@ const Field = ({
     case FIELD_TYPES.INPUT_TEXT:
       component = (
         <input
+          id={name}
           type="text"
           name={name}
           placeholder={placeholder}
@@ -36,15 +37,18 @@ const Field = ({
     case FIELD_TYPES.TEXTAREA:
       component = 
       <textarea 
+      id={name}
       name={name} 
       value={value}
       onChange={(e) => onChange(e.target.value)}
       className={inputClass}
-      data-testid="field-testid" />;
+      data-testid="field-testid" 
+      />;
       break;
     default:
       component = (
         <input
+          id={name}
           type="text"
           name={name}
           placeholder={placeholder}
@@ -52,14 +56,13 @@ const Field = ({
           onChange={(e) => onChange(e.target.value)}
           className={inputClass}
           data-testid="field-testid"
-
         />
       );
   }
 
   return (
     <div className="inputField">
-      <span>{label}</span>
+      <span><label htmlFor={name}>{label}</label></span>
       {component}
     </div>
   );

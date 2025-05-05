@@ -13,6 +13,15 @@ describe("When Form is created", () => {
   describe("and a click is triggered on the submit button", () => {
     it("the success message is displayed", async () => {
       render(<Home />);
+
+      fireEvent.change(screen.getByLabelText("Email"), {
+        target: {value: "test@example.com"},
+      });
+
+      fireEvent.change(screen.getByLabelText("Message"), {
+        target: {value : "Un message de test"},
+      });
+      
       fireEvent(
         await screen.findByText("Envoyer"),
         new MouseEvent("click", {
