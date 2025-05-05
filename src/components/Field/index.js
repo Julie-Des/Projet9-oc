@@ -12,8 +12,13 @@ const Field = ({
   name = "field-name",
   label = "",
   placeholder = "",
+  value = "",
+  onChange = () => {},
+  error = false,
 }) => {
   let component;
+  const inputClass = error ? "inputField-error" : "";
+
   switch (type) {
     case FIELD_TYPES.INPUT_TEXT:
       component = (
@@ -22,11 +27,20 @@ const Field = ({
           name={name}
           placeholder={placeholder}
           data-testid="field-testid"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={inputClass}
         />
       );
       break;
     case FIELD_TYPES.TEXTAREA:
-      component = <textarea name={name} data-testid="field-testid" />;
+      component = 
+      <textarea 
+      name={name} 
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className={inputClass}
+      data-testid="field-testid" />;
       break;
     default:
       component = (
@@ -34,7 +48,11 @@ const Field = ({
           type="text"
           name={name}
           placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={inputClass}
           data-testid="field-testid"
+
         />
       );
   }
@@ -51,7 +69,10 @@ Field.propTypes = {
   type: PropTypes.oneOf(Object.values(FIELD_TYPES)).isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired
+  placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.bool.isRequired
 };
 
 export default Field;

@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 import "./style.scss";
 
 export const BUTTON_TYPES = {
@@ -7,12 +6,13 @@ export const BUTTON_TYPES = {
   SUBMIT: 2,
 };
 
-const Button = ({ title = "",
+const Button = ({
+  title = "",
   onClick = () => null,
   type = BUTTON_TYPES.DEFAULT,
   disabled = false,
   children = null,
- }) => {
+}) => {
   switch (type) {
     case BUTTON_TYPES.DEFAULT:
       return (
@@ -27,18 +27,21 @@ const Button = ({ title = "",
           {children}
         </button>
       );
+
     case BUTTON_TYPES.SUBMIT:
       return (
-        <input
+        <button
+          type="submit"
           disabled={disabled}
           className="Button"
-          type="submit"
           data-testid="button-test-id"
-          value={children}
           onClick={onClick}
           title={title}
-        />
+        >
+          {children}
+        </button>
       );
+
     default:
       return (
         <button
@@ -61,7 +64,7 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.number.isRequired,
   disabled: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Button;
