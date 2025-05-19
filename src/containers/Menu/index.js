@@ -6,7 +6,7 @@ import "./style.scss";
 
 const Menu = () => (
 	<nav>
-		<Logo size="small"/>
+		<Logo size="small" />
 		<ul>
 			<li>
 				<a href="#nos-services">Nos services</a>
@@ -22,15 +22,12 @@ const Menu = () => (
 			title="contact"
 			onClick={() => {
 				if (window.location.hash === "#contact") {
-					// On enlève temporairement le hash
 					window.history.replaceState(null, "", window.location.pathname + window.location.search);
 				}
-
-				// Puis on le remet → déclenche le scroll
 				window.location.hash = "#contact";
 			}}
-      type = {BUTTON_TYPES.DEFAULT}
-      disabled = {false}
+			type={BUTTON_TYPES.DEFAULT}
+			disabled={false}
 		>
 			Contact
 		</Button>

@@ -9,7 +9,6 @@ const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 500)
 const Form = ({ onSuccess = () => null, onError = () => null }) => {
   const [sending, setSending] = useState(false);
   
-  // 👇 formData contient les valeurs des champs
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
@@ -18,18 +17,16 @@ const Form = ({ onSuccess = () => null, onError = () => null }) => {
     select: ""
   });
 
-  // 👇 handleChange met à jour formData
   const handleChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // 👇 Validation simple sans message d’erreur
   const sendContact = useCallback(
     async (evt) => {
       evt.preventDefault();
 
       if (!formData.email || !formData.message) {
-        return; // ne pas envoyer si email ou message vide
+        return; 
       }
 
       setSending(true);
