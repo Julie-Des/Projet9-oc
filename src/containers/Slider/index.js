@@ -22,7 +22,7 @@ const Slider = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [byDateDesc?.length]); 
+  }, [byDateDesc]); 
 
   return (
     <div className="SlideCardList">
