@@ -27,24 +27,29 @@ This project is part of the Web Integrator training course – OpenClassrooms.
 During this project, several issues were identified and resolved based on the test plan scenarios.
 
 ### 🧭 Navigation Bar
+
 - Fixed broken navigation links that did not scroll correctly to the associated sections.
 - Implemented smooth scrolling behavior when clicking on navigation items.
 - Corrected the behavior when clicking repeatedly on the same navigation link — the page now stays on the correct section.
 
 ### 🎞️ Event Slider
+
 - Fixed the incorrect month display for events.
 - Corrected the event order in the slider — events are now sorted from most recent to oldest.
 - Implemented infinite slider looping and ensured the corresponding radio buttons update properly during transitions.
 
 ### 🗂️ Event Categories
+
 - Fixed incorrect filtering of events by category — only events from the selected category are now displayed.
 - Limited the number of displayed events to a maximum of **9 per page**, according to the design specifications.
 
 ### 📩 Contact Form
+
 - Fixed the form submission process — the **“Sending...”** status and success message now appear correctly after submission.
 - Added validation to prevent form submission when required fields (**email** and **message**) are empty.
 
 ### 🦶 Footer Event
+
 - Fixed the display of the latest event in the footer — image, title, and date now render correctly.
 - Fixed the click behavior — clicking the event in the footer now correctly opens the event details modal.
 
@@ -64,27 +69,27 @@ Follow these instructions to get the project up and running on your local machin
     git clone https://github.com/Julie-Des/Projet9-oc
     ```
 
-2. Install the dependencies:
+2.  Install the dependencies:
 
     ```bash
-   yarn install
+    yarn install
     ```
 
 ### Running Locally
 
 1.  Start the development server:
 
-     ```bash
-    yarn start
-     ```
-
-2. Run the tests:
-   
     ```bash
-   yarn test
-     ```
-  
-4.  Open your browser and navigate to `http://localhost:3000` (or the port specified by your environment).
+    yarn start
+    ```
+
+2.  Run the tests:
+
+    ```bash
+    yarn test
+    ```
+
+3.  Open your browser and navigate to `http://localhost:3000` (or the port specified by your environment).
 
 ## 🌍 Deployment
 
