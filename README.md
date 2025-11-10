@@ -69,7 +69,13 @@ Follow these instructions to get the project up and running on your local machin
     git clone https://github.com/Julie-Des/Projet9-oc
     ```
 
-2.  Install the dependencies:
+2.  Navigate to the project directory:
+
+    ```bash
+    cd Projet9-oc
+    ```
+
+3.  Install the dependencies:
 
     ```bash
     yarn install
